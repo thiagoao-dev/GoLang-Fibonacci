@@ -1,26 +1,34 @@
 package main
 
-import "fmt"
+import (
+  "fmt"
+  "os"
+  "strconv"
+)
 
-var last int
-var now  int
+var last, now int // define global integer var
 
+// Main function
 func main() {
 
   last = 0
   now  = 1
   
-  for i := 1; i < 10; i++{
-    fmt.Printf("%d\n",fibonacci())    
+  s      := os.Args[1:]        // Get user paramn
+  max, _ := strconv.Atoi(s[0]) // Conert string to integer
+  
+  for i := 1; i < max; i++ {
+    fmt.Printf("%d\n",Fibonacci()) // Call fibonacci function
   }
 
 }
 
-func fibonacci() int {
+// Fibonacci function return the next value
+func Fibonacci() int {
   
   total := last + now
-  now = last
-  last = total
+  now   = last
+  last  = total
   
   return total
 }
