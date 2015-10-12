@@ -10,7 +10,8 @@ import (
 func main() {
 	f := algorithm.Fibonacci()
 	rand.Seed(time.Now().UnixNano())
-	for i := 0; i < rand.Intn(20); i++ {
+	x := rand.Intn(20)
+	for i := 1; i <= x; i++ {
 		fmt.Println(i, f())
 	}
 }
